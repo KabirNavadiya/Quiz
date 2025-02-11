@@ -19,6 +19,14 @@ body {
    height: 50%;
    max-width: 600px;
 }
+.text-container{
+   max-width: 500px;
+   background: white;
+   padding: 20px;
+   border-radius: 10px;
+   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+   margin: auto;   
+}
 
 h1 {
    color: #333;
@@ -35,13 +43,20 @@ h4 {
    color: #444;
    margin-bottom: 10px;
 }
-
 ul {
+   text-align: left;
+   padding: 0;
+}
+li {
+   margin: 20px 0;
+}
+
+.option-ul {
    list-style: none;
    padding: 0;
 }
 
-li {
+.option-li {
    padding: 10px;
    background: #f8f9fa;
    margin: 8px 0;
@@ -59,12 +74,12 @@ li {
    cursor: pointer;
 }
 
-li input[type="radio"] {
+.option-li input[type="radio"] {
    display: none;
 }
 
 
-li input[type="radio"]:checked + span {
+.option-li input[type="radio"]:checked + span {
    background: #50db67;
    display: flex;
    align-items: start;
@@ -74,7 +89,7 @@ li input[type="radio"]:checked + span {
    width: 100%;
 }
 
-li:hover {
+.option-li:hover {
    background: #e2e6ea;
 }
 
