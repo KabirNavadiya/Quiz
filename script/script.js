@@ -3,7 +3,6 @@ let cindex = 0;
 let score = 0;
 let userAnswers = [];
 $("#submitAnswer").hide();
-$("#restart").hide();
 $("#quiz").hide();
 $("#view-answers").hide();
 $("#myModal").hide();
@@ -14,36 +13,34 @@ $.ajax({
     dataType: "json",
 }).done(function (data) {
     questions = data;
-    displayAnswers(questions);
 })
 
 function displayAnswers(questions){
-    // console.log(questions);
+    $("#Score").text(`Score : ${score} / ${questions.length}`);
     questions.forEach((q,i) => {
-        // console.log(q.question);
         let userans = userAnswers[i];
-        $("#modal-content").append(
-            $("<h4>").text(`${q.question}`),
-            $("<ul>").addClass("option-ul").append(
-                q.options.map(option => 
-                    $("<li>").addClass("option-li").append(
-                        $("<label>").addClass("option-label").append(                            
-                            $("<span>").text(option).toggleClass("correct-answer",option===q.answer).toggleClass("wrong-answer",option === userans && userans !== q.answer),
-                        )
-                    )
-                )
-            )
-        )
+        let questionEl= $("<h4>").text(`${q.question}`);
+        let ulEl = $("<ul>").addClass("option-ul");
+
+        q.options.map(option =>{
+            let optionSpan =$("<span>").text(option);
+
+            if(option ===q.answer){
+                optionSpan.toggleClass("correct-answer");
+            }
+            if(option ===userans && option !==q.answer){
+                optionSpan.toggleClass("wrong-answer");
+            }
+            let labelEl = $("<label>").addClass("option-label").append(optionSpan);
+            let liEl = $("<li>").addClass("option-li").append(labelEl);
+
+            ulEl.append(liEl);
+        })
+        $("#modal-content").append(questionEl,ulEl);
     });    
 }
 
-
-
 function displayQuestion(indx) {
-    // console.log(questions[0]);
-    console.log(indx);
-
-    console.log(questions[indx]);
     $("#quiz").empty();
     $("#quiz").fadeIn();
     $("#submitAnswer").show()
@@ -78,7 +75,6 @@ function displayQuestion(indx) {
             )
             $("#view-answers").show();
         } else {
-            $("#restart").show();
             $("#quiz").hide();
             $("#submitAnswer").hide();
             $(".score-display").append(
@@ -88,17 +84,13 @@ function displayQuestion(indx) {
             )
             $("#view-answers").show();
         }
-
-
     }
-
 }
 $(document).ready(function () {
     $("#getQuestion").click(function () {
         $(".text-container").hide();
         displayQuestion(cindex);
         $("#submitAnswer").show()
-
     });
 });
 
@@ -115,19 +107,7 @@ $(document).ready(function () {
         }
         cindex++;
         displayQuestion(cindex);
-
-
     })
-});
-
-$(document).ready(function () {
-    $("#restart").click(function () {
-        $("#restart").hide();
-        $(".score-display").hide();
-        cindex = 0;
-        score = 0;
-        displayQuestion(cindex);
-    });
 });
 
 var modal = document.getElementById("myModal");
@@ -143,5 +123,6 @@ window.onclick = function (event) {
 $(document).ready(function () {
     $("#view-answers").click(function () {
         $("#myModal").show();
+        displayAnswers(questions);
     });
 });
