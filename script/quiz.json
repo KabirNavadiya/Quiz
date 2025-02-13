@@ -1,0 +1,12 @@
+[
+    { "id": 1, "question": "What is the capital of France?", "options": ["Paris", "Berlin", "Madrid", "Rome"], "answer": "Paris" },
+    { "id": 2, "question": "Which language runs in a web browser?", "options": ["Java", "C", "Python", "JavaScript"], "answer": "JavaScript" },
+    { "id": 3, "question": "What does HTML stand for?", "options": ["Hyper Text Markup Language", "High Tech Modern Language", "Hyperlink and Text Markup Language", "None of these"], "answer": "Hyper Text Markup Language" },
+    { "id": 4, "question": "What year was JavaScript launched?", "options": ["1996", "1995", "1994", "1993"], "answer": "1995" },
+    { "id": 5, "question": "Which company developed Java?", "options": ["Microsoft", "Apple", "Sun Microsystems", "Google"], "answer": "Sun Microsystems" },
+    { "id": 6, "question": "Who is the founder of Microsoft?", "options": ["Steve Jobs", "Bill Gates", "Mark Zuckerberg", "Elon Musk"], "answer": "Bill Gates" },
+    { "id": 7, "question": "Which HTML element is used to include JavaScript?", "options": ["<js>", "<script>", "<javascript>", "<code>"], "answer": "<script>" },
+    { "id": 8, "question": "Which is a JavaScript framework?", "options": ["React", "Laravel", "Django", "Spring"], "answer": "React" },
+    { "id": 9, "question": "Which protocol is used to fetch web pages?", "options": ["FTP", "HTTP", "SSH", "SMTP"], "answer": "HTTP" },
+    { "id": 10, "question": "What does CSS stand for?", "options": ["Cascading Style Sheet", "Computer Style Sheet", "Colorful Style Sheet", "Creative Style Sheet"], "answer": "Cascading Style Sheet" }
+]

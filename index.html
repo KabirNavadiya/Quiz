@@ -4,8 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </head>
 <body>
+    <div class="container">
+        <h1>Quiz</h1>
+        <div class="text-container">
+            <h2>Instructions</h2>
+            <ul>
+                <li>Make sure you understand the question before answering.</li>
+                <li>Choose the most appropriate option.</li>
+                <li>Answer questions efficiently to complete the quiz.</li>
+                <li>Review your answers before submitting.</li>
+            </ul>
+        </div>
+        <button id="getQuestion">start</button>
+        <div class="score-display"></div>
+        <button id="view-answers">View answers</button>
+        <div id="myModal" class="modal">
+            <div id="modal-content" class="modal-content">
+            <div class="header">
+                <h1>Answers</h1>
+                <h3 id="Score"></h3>
+                <span class="close">&times;</span>
+            </div>
+            </div>
+        </div>
+        <!-- <button id="restart">Restart</button> -->
+        <div id="quiz"></div>
+        <button id="submitAnswer">Next</button>
+    </div>
     
+
+
+    <script src="script/script.js"></script>
 </body>
 </html>
