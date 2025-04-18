@@ -25,7 +25,7 @@ function displayAnswers(questions){
         q.options.map(option =>{
             let optionSpan =$("<span>").text(option);
 
-            if(option ===q.answer){
+            if(option === q.answer){
                 optionSpan.toggleClass("correct-answer");
             }
             if(option ===userans && option !==q.answer){
