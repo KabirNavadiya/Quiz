@@ -15,20 +15,20 @@ $.ajax({
     questions = data;
 })
 
-function displayAnswers(questions){
+function displayAnswers(questions) {
     $("#Score").text(`Score : ${score} / ${questions.length}`);
-    questions.forEach((q,i) => {
+    questions.forEach((q, i) => {
         let userans = userAnswers[i];
-        let questionEl= $("<h4>").text(`${q.question}`);
+        let questionEl = $("<h4>").text(`${q.question}`);
         let ulEl = $("<ul>").addClass("option-ul");
 
-        q.options.map(option =>{
-            let optionSpan =$("<span>").text(option);
+        q.options.map(option => {
+            let optionSpan = $("<span>").text(option);
 
-            if(option === q.answer){
+            if (option === q.answer) {
                 optionSpan.toggleClass("correct-answer");
             }
-            if(option ===userans && option !==q.answer){
+            if (option === userans && option !== q.answer) {
                 optionSpan.toggleClass("wrong-answer");
             }
             let labelEl = $("<label>").addClass("option-label").append(optionSpan);
@@ -36,8 +36,8 @@ function displayAnswers(questions){
 
             ulEl.append(liEl);
         })
-        $("#modal-content").append(questionEl,ulEl);
-    });    
+        $("#modal-content").append(questionEl, ulEl);
+    });
 }
 
 function displayQuestion(indx) {
